@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+id Int @id @default(autoincrement())
+email String @unique
+password String 
+  @@map("users")
+}
+
+model Category {
+id Int @id @default(autoincrement())
+name String @unique
+  @@map("categories")
+tests Test[]
+}
+model Term {
+id Int @id @default(autoincrement())
+number Int
+disciplines Discipline[]
+  @@map("terms")
+}
+model Teacher {
+id Int @id @default(autoincrement())
+name String
+teacherDiscipline TeachersDiscipline[]
+tests Test[]
+@@map("teachers")
+}
+
+model Discipline {
+id Int @id @default(autoincrement())
+name String @unique
+term Term @relation(fields:[termId], references: [id])
+termId Int
+teacherDiscipline TeachersDiscipline[]
+  @@map("disciplines")
+}
+
+
+model TeachersDiscipline {
+id Int @id @default(autoincrement())
+teacher Teacher @relation(fields:[teacherId],references: [id])
+discipline Discipline @relation(fields:[disciplineId],references: [id])
+teacherId Int
+disciplineId Int
+  @@map("teachersdisciplines")
+}
+
+model Test {
+id Int @id @default(autoincrement())
+name String
+pdfUrl String
+category Category @relation(fields:[categoryId],references: [id])
+teacher Teacher @relation(fields:[teacherDisciplineId],references: [id])
+categoryId Int
+teacherDisciplineId Int
+  @@map("teachersdiscipline")
+}
