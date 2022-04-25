@@ -17,8 +17,8 @@ password String
 model Category {
 id Int @id @default(autoincrement())
 name String @unique
-  @@map("categories")
 tests Test[]
+  @@map("categories")
 }
 model Term {
 id Int @id @default(autoincrement())
@@ -30,7 +30,6 @@ model Teacher {
 id Int @id @default(autoincrement())
 name String
 teacherDiscipline TeachersDiscipline[]
-tests Test[]
 @@map("teachers")
 }
 
@@ -50,6 +49,7 @@ teacher Teacher @relation(fields:[teacherId],references: [id])
 discipline Discipline @relation(fields:[disciplineId],references: [id])
 teacherId Int
 disciplineId Int
+tests Test[]
   @@map("teachersdisciplines")
 }
 
@@ -58,8 +58,8 @@ id Int @id @default(autoincrement())
 name String
 pdfUrl String
 category Category @relation(fields:[categoryId],references: [id])
-teacher Teacher @relation(fields:[teacherDisciplineId],references: [id])
+teachersdiscipline TeachersDiscipline @relation(fields:[teacherDisciplineId],references: [id])
 categoryId Int
 teacherDisciplineId Int
-  @@map("teachersdiscipline")
+  @@map("tests")
 }

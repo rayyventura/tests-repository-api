@@ -6,7 +6,7 @@ import userRepository from "../repositories/userRepository.js";
 dotenv.config();
 
 export type UserData = Omit<User, "id">;
-async function insert(UserData: UserData) {
+async function signUp(UserData: UserData) {
   const existingUser = await userRepository.findByEmail(UserData.email);
   if (existingUser) throw { type: "conflict", message: "Email already in use" };
 
@@ -38,7 +38,7 @@ async function signIn({ email, password }: UserData) {
 }
 
 export default {
-  insert,
+  signUp,
   signIn,
   findById,
 };
