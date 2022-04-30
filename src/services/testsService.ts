@@ -1,52 +1,11 @@
-import { prisma } from "../database.js";
+import * as testsRepository from "../repositories/testsRepository.js";
 
 export async function getByTeacher() {
-  const data = await prisma.teacher.findMany({
-    select: {
-      id: true,
-      name: true,
-      teacherDiscipline: {
-        select: {
-          discipline: true,
-          tests: {
-            select: {
-              name: true,
-              pdfUrl: true,
-              category: true,
-            },
-          },
-        },
-      },
-    },
-  });
+  const data = await testsRepository.getByTeacher();
   return data;
 }
 
 export async function getByDisciplines() {
-  const data = await prisma.term.findMany({
-    select: {
-      id: true,
-      number: true,
-      disciplines: {
-        select: {
-          name: true,
-          term: true,
-          termId: true,
-          teacherDiscipline: {
-            select: {
-              tests: {
-                select: {
-                  name: true,
-                  pdfUrl: true,
-                  category: true,
-                },
-              },
-              teacher: { select: { name: true } },
-            },
-          },
-        },
-      },
-    },
-  });
+  const data = await testsRepository.getByDisciplines();
   return data;
 }

@@ -10,3 +10,7 @@ export async function getByTeacher(req: Request, res: Response) {
   const data = await testsService.getByTeacher();
   res.send(data);
 }
+export async function update(req: Request, res: Response) {
+  const data = await testsService.getByTeacher();
+  res.send(data);
+}

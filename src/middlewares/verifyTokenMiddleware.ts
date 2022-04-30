@@ -13,15 +13,18 @@ export async function verifyTokenMiddleware(
   if (!authorization) throw { type: "unauthorized" };
 
   const token = authorization.replace("Bearer ", "");
-  const { userId } = jwt.verify(token, process.env.JWT_SECRET) as {
-    userId: number;
-  };
+  try {
+    const { userId } = jwt.verify(token, process.env.JWT_SECRET) as {
+      userId: number;
+    };
 
-  const user = await userService.findById(userId);
-  if (!user) {
-    throw { type: "not_fount", message: "user was not fount" };
+    const user = await userService.findById(userId);
+    if (!user) {
+      throw { type: "not_fount", message: "user was not found" };
+    }
+    res.locals.user = user;
+    next();
+  } catch {
+    throw { type: "unauthorized", message: "invalid token" };
   }
-  res.locals.user = user;
-
-  next();
 }

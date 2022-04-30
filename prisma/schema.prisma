@@ -62,4 +62,5 @@ teachersdiscipline TeachersDiscipline @relation(fields:[teacherDisciplineId],ref
 categoryId Int
 teacherDisciplineId Int
   @@map("tests")
+views Int @default(0)
 }
