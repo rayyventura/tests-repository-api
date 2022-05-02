@@ -10,6 +10,7 @@ export async function verifyTokenMiddleware(
   next: NextFunction
 ) {
   const authorization = req.headers["authorization"];
+
   if (!authorization) throw { type: "unauthorized" };
 
   const token = authorization.replace("Bearer ", "");

@@ -61,6 +61,6 @@ category Category @relation(fields:[categoryId],references: [id])
 teachersdiscipline TeachersDiscipline @relation(fields:[teacherDisciplineId],references: [id])
 categoryId Int
 teacherDisciplineId Int
-  @@map("tests")
 views Int @default(0)
+  @@map("tests")
 }
