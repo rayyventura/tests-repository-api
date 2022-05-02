@@ -81,7 +81,6 @@ export async function getTeacherDiscipline(
     },
   });
 }
-
 export async function getTeacherDisciplines(
   disciplineId: number,
   teacherId: number

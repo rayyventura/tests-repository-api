@@ -4,12 +4,12 @@ import * as testsService from "../services/testsService.js";
 
 export async function getByDisciplines(req: Request, res: Response) {
   const data = await testsService.getByDisciplines();
-  res.send(data);
+  res.status(200).send(data);
 }
 
 export async function getByTeacher(req: Request, res: Response) {
   const data = await testsService.getByTeacher();
-  res.send(data);
+  res.status(200).send(data);
 }
 export async function updateViews(req: Request, res: Response) {
   const { id } = req.params;
