@@ -6,11 +6,11 @@ export interface CreateTest {
   disciplineId: number;
   teacherId: number;
 }
-const testSchema = Joi.object({
+const examSchema = Joi.object({
   title: Joi.string().required(),
   pdfUrl: Joi.string().uri().required(),
   categoryId: Joi.number().integer().required(),
   disciplineId: Joi.number().integer().required(),
   teacherId: Joi.number().integer().required(),
 });
-export default testSchema;
+export default examSchema;

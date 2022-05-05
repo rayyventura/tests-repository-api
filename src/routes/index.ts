@@ -1,6 +1,6 @@
 import { Router } from "express";
 import e2eTestRouter from "./e2eRouter.js";
-import testsRouter from "./testsRouter.js";
+import testsRouter from "./examsRouter.js";
 import userRouter from "./userRouter.js";
 import dotenv from "dotenv";
 import categoriesRouter from "./categoriesRouter.js";

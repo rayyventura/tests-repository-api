@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateTest } from "../schemas/testsSchema.js";
+import { CreateTest } from "../schemas/examSchema.js";
 import * as testsService from "../services/testsService.js";
 
 export async function getByDisciplines(req: Request, res: Response) {

@@ -1,5 +1,5 @@
-import * as testsRepository from "../repositories/testsRepository.js";
-import { CreateTest } from "../schemas/testsSchema.js";
+import * as testsRepository from "../repositories/examsRepository.js";
+import { CreateTest } from "../schemas/examSchema.js";
 
 export async function getByTeacher() {
   const data = await testsRepository.getByTeacher();

@@ -3,7 +3,7 @@ import app from "../../src/app.js";
 import { createBody } from "../factories/userFactory.js";
 import { prisma } from "../../src/database.js";
 import createToken from "../factories/tokenFactory.js";
-import { afterAlls } from "../factories/beforeAndAfterAll.js";
+import { afterAlls } from "../utils/beforeAndAfterAll.js";
 
 export async function getData(data: string) {
   describe(`GET /${data}`, () => {
@@ -26,7 +26,7 @@ export async function getData(data: string) {
     });
   });
 }
-export async function getTestsData(data: string) {
+export async function getExamsData(data: string) {
   describe(`GET /tests/${data}`, () => {
     afterAlls();
 
