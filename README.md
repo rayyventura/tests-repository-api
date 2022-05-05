@@ -1,5 +1,5 @@
 # RepoProvas 📝
-## Share and tag links!
+## Share and get tests!
 
 ### :computer: Tech used
 <p>
