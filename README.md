@@ -1,4 +1,4 @@
-# Linkr ⛓️
+# RepoProvas 📝
 ## Share and tag links!
 
 ### :computer: Tech used
